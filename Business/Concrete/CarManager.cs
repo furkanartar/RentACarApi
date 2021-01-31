@@ -7,7 +7,7 @@ namespace Business
     public class CarManager : ICarService
     {
         CarDal _carDal = new CarDal();
-        public List<Car> GetById(int id)
+        public Car GetById(int id)
         {
             return _carDal.GetById(id);
         }
