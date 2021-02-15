@@ -1,5 +1,6 @@
 ﻿using System;
 using Business;
+using DataAccess.Concrete.EntityFramework;
 using Entities;
 
 namespace ConsoleUI
@@ -8,39 +9,9 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarManager _carManager = new CarManager();
+            CarManager _carManager = new CarManager(new EfCarDal());
 
-            Console.WriteLine(_carManager.GetById(2).Description);
-
-            Console.WriteLine("------------------------");
-            Console.WriteLine();
-            Console.WriteLine();
-
-            _carManager.Add(new Car() { CarId = 4, BradId = 4, ColorId = 4, ModelYear = 2021, Description = "add metodu", DailyPrice = 699999 });
-            foreach (var car in _carManager.GetAll())
-            {
-                Console.WriteLine(car.BradId);
-            }
-
-            Console.WriteLine("------------------------");
-            Console.WriteLine();
-            Console.WriteLine();
-
-            _carManager.Update(new Car() { CarId = 1, BradId = 9, ColorId = 9, ModelYear = 2021, Description = "Güncellenen kasa", DailyPrice = 1499999999 });
-            foreach (var car in _carManager.GetAll())
-            {
-                Console.WriteLine(car.Description);
-            }
-
-            Console.WriteLine("------------------------");
-            Console.WriteLine();
-            Console.WriteLine();
-
-            _carManager.Delete(3);
-            foreach (var car in _carManager.GetAll())
-            {
-                Console.WriteLine(car.BradId);
-            }
+            _carManager.Add(new Car() { BrandId = 1, ColorId = 3, DailyPrice = 50,  Description = "Fiat Linea", ModelYear = 1999 });
         }
     }
 }
