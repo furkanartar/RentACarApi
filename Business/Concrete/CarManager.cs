@@ -1,11 +1,8 @@
-﻿using System;
+﻿using DataAccess;
+using Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using DataAccess;
-using DataAccess.Concrete;
-using DataAccess.Concrete.EntityFramework;
-using Entities;
 
 namespace Business
 {
@@ -17,36 +14,35 @@ namespace Business
         {
             _carDal = carDal;
         }
-
-        public Car GetById(int id)
-        {
-            return _carDal.Get(Car => Car.CarId == id);
-        }
-
-        public List<Car> GetCarsByBrandId(int id)
-        {
-            return _carDal.GetAll(car => car.BrandId == id).ToList();
-        }
-
-        public List<Car> GetCarsByColorId(int id)
-        {
-            return _carDal.GetAll(car => car.ColorId == id).ToList();
-        }
-
         public List<Car> GetAll()
         {
             return _carDal.GetAll();
         }
 
-        public void Add(Car car)
+        public Car GetById(int id)
         {
-            if (car.Description.Length > 2 && car.DailyPrice > 0)
+            return _carDal.Get(c => c.CarId == id);
+        }
+
+        public List<Car> GetCarsByBrandId(int id)
+        {
+            return _carDal.GetAll(c => c.BrandId == id).ToList();
+        }
+
+        public List<Car> GetCarsByColorId(int id)
+        {
+            return _carDal.GetAll(c => c.ColorId == id).ToList();
+        }
+
+       public void Add(Car car)
+        {
+            if (car.CarName.Length > 2 && car.DailyPrice > 0)
             {
                 _carDal.Add(car);
             }
             else
             {
-                Console.WriteLine("Güzel kardeşim, Açıklama uzunluğu en az 2 karakter günlük fiyat ise en az 1 TL olmalı. Düzeltirsen sevinirim.");
+                Console.WriteLine("Güzel kardeşim, İsim uzunluğu en az 2 karakter günlük fiyat ise en az 1 TL olmalı. Düzeltirsen sevinirim.");
             }
         }
 

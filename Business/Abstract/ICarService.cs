@@ -15,4 +15,3 @@ namespace Business
     }
 }
 
-//GetById, GetAll, Add, Update, Delete
