@@ -22,7 +22,7 @@ namespace Business
 
         public IDataResult<Color> GetById(int id)
         {
-            return new SuccessDataResult<Color>(_colorDal.Get(c => c.ColorId == id), Messages.Listed);
+            return new SuccessDataResult<Color>(_colorDal.Get(c => c.Id == id), Messages.Listed);
         }
 
         public IResult Add(Color color)

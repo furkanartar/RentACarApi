@@ -24,7 +24,7 @@ namespace Business
 
         public IDataResult<Car> GetById(int id)
         {
-            return new SuccessDataResult<Car>(_carDal.Get(c => c.CarId == id), Messages.Listed);
+            return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == id), Messages.Listed);
         }
 
         public IDataResult<List<Car>> GetCarsByBrandId(int id)

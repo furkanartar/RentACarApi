@@ -22,7 +22,7 @@ namespace Business
 
         public IDataResult<Brand> GetById(int id)
         {
-            return new SuccessDataResult<Brand>(_brandDal.Get(c => c.BrandId == id), Messages.Listed);
+            return new SuccessDataResult<Brand>(_brandDal.Get(c => c.Id == id), Messages.Listed);
         }
 
         public IResult Add(Brand brand)

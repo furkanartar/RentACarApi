@@ -8,5 +8,6 @@
         public static string NameInvalid = "Geçersiz isim";
         public static string MaintenanceTime = "Sistem bakımda";
         public static string Listed = "Listelendi";
+        public static string RentInvalid = "Araba zaten kiralandı";
     }
 }
