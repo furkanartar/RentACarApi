@@ -20,23 +20,6 @@ namespace ConsoleUI
             Console.WriteLine(_rentalManager.Add(new Rental { CarId = 2, CustomerId = 1, RentDate = new DateTime(2021, 01, 01), ReturnDate = new DateTime(2021, 02, 12) }).Message);
         }
 
-        //, RentDate = new DateTime(2021, 03, 01), 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         private static void GetCarDetails()
         {
             EfCarDal _efCarDal = new EfCarDal();
