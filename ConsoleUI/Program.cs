@@ -26,13 +26,13 @@ namespace ConsoleUI
             ColorManager _colorManager = new ColorManager(new EfColorDal());
 
             Console.WriteLine("Tüm renklerimiz:");
-            foreach (var color in _colorManager.GetAll())
+            foreach (var color in _colorManager.GetAll().Data)
             {
                 Console.WriteLine(color.ColorName);
             }
 
             Console.WriteLine("İstediğiniz renk:");
-            Console.WriteLine(_colorManager.GetById(1).ColorName);
+            Console.WriteLine(_colorManager.GetById(1).Data.ColorName);
 
             Console.WriteLine("renk eklendi.");
             _colorManager.Add(new Color() { ColorName = "Turuncu" });
@@ -49,13 +49,13 @@ namespace ConsoleUI
             BrandManager _brandManager = new BrandManager(new EfBrandDal());
 
             Console.WriteLine("Tüm markalarımız:");
-            foreach (var brand in _brandManager.GetAll())
+            foreach (var brand in _brandManager.GetAll().Data)
             {
                 Console.WriteLine(brand.BrandName);
             }
 
             Console.WriteLine("İstediğiniz marka:");
-            Console.WriteLine(_brandManager.GetById(1).BrandName);
+            Console.WriteLine(_brandManager.GetById(1).Data.BrandName);
 
             Console.WriteLine("Marka eklendi.");
             _brandManager.Add(new Brand() {BrandName = "Hyundai"});
@@ -72,13 +72,13 @@ namespace ConsoleUI
             CarManager _carManager = new CarManager(new EfCarDal());
 
             Console.WriteLine("Tüm araçlarımız:");
-            foreach (var VARIABLE in _carManager.GetAll())
+            foreach (var VARIABLE in _carManager.GetAll().Data)
             {
                 Console.WriteLine(VARIABLE.Description);
             }
 
             Console.WriteLine("\n \n" + "İstediğiniz araç:");
-            Console.WriteLine(_carManager.GetById(2).Description);
+            Console.WriteLine(_carManager.GetById(2).Data.Description);
 
             Console.WriteLine("Aracınız eklendi.");
             _carManager.Add(new Car() {BrandId = 3, ColorId = 3, DailyPrice = 1, Description = "Fiat Linea", ModelYear = 2012});
