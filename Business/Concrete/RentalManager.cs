@@ -17,7 +17,7 @@ namespace Business
 
         public IResult Add(Rental rental)
         {
-            if (rental.RentDate < DateTime.Today)
+            if (rental.ReturnDate < DateTime.Today)
             {
                 _rentalDal.Add(rental);
                 return new SuccessResult(Messages.Added);

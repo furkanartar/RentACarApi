@@ -15,7 +15,7 @@ namespace ConsoleUI
             //ColorCRUD();
             //GetCarDetails();
 
-            RentalManager _rentalManager = new RentalManager(new RentalDal());
+            IRentalService _rentalManager = new RentalManager(new EfRentalDal());
 
             Console.WriteLine(_rentalManager.Add(new Rental { CarId = 2, CustomerId = 1, RentDate = new DateTime(2021, 01, 01), ReturnDate = new DateTime(2021, 02, 12) }).Message);
         }

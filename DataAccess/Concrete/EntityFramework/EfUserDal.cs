@@ -3,8 +3,8 @@ using Entities;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class RentalDal:EfEntityRepositoryBase<Rental, CarRentalContext>,IRentalDal
+    public class EfUserDal : EfEntityRepositoryBase<User, CarRentalContext>, IUserDal
     {
-        
+
     }
 }
