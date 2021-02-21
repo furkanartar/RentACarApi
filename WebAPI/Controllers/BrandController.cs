@@ -1,14 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Business;
+using Entities;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Business;
-using Entities;
 
 namespace WebAPI.Controllers
 {
-    public class BrandController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class BrandController : ControllerBase
     {
         private IBrandService _brandService;
 
@@ -82,5 +85,14 @@ namespace WebAPI.Controllers
 
 
 
+
+
+
+
+
+
+
+
+        
     }
 }

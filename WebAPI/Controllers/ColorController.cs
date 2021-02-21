@@ -1,15 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Business;
+using Entities;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Business;
-using Core.Utilities.Results;
-using Entities;
 
 namespace WebAPI.Controllers
 {
-    public class ColorController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ColorController : ControllerBase
     {
         private IColorService _colorService;
 
@@ -77,5 +79,33 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     }
 }

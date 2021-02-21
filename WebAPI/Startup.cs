@@ -13,7 +13,6 @@ using System.Threading.Tasks;
 using Business;
 using DataAccess;
 using DataAccess.Concrete.EntityFramework;
-using Entities;
 
 namespace WebAPI
 {

@@ -1,14 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Business;
+using Entities;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Business;
-using Entities;
 
 namespace WebAPI.Controllers
 {
-    public class RentalController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class RentalController : ControllerBase
     {
         private IRentalService _rentalService;
         public RentalController(IRentalService rentalService)
@@ -16,7 +19,19 @@ namespace WebAPI.Controllers
             _rentalService = rentalService;
         }
 
-        [HttpGet("add")]
+        [HttpGet("getall")]
+        public IActionResult GetAll()
+        {
+            var result = _rentalService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+
+        [HttpPost("add")]
         public IActionResult Add(Rental rental)
         {
             var result = _rentalService.Add(rental);
