@@ -11,11 +11,11 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BrandController : ControllerBase
+    public class BrandsController : ControllerBase
     {
         private IBrandService _brandService;
 
-        public BrandController(IBrandService brandService)
+        public BrandsController(IBrandService brandService)
         {
             _brandService = brandService;
         }
@@ -32,7 +32,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("getbyid")]
+        [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
             var result = _brandService.GetById(id);
