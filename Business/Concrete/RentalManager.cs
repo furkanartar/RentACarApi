@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Business.Constants;
+﻿using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess;
 using Entities;
+using System.Collections.Generic;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 
 namespace Business
 {
@@ -21,15 +22,11 @@ namespace Business
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.Listed);
         }
 
+        [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
-            if (rental.ReturnDate < DateTime.Today)
-            {
-                _rentalDal.Add(rental);
-                return new SuccessResult(Messages.Added);
-            }
-
-            return new ErrorResult(Messages.RentInvalid);
+            _rentalDal.Add(rental);
+            return new SuccessResult(Messages.Added);
         }
     }
 }
