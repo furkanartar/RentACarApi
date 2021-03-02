@@ -7,7 +7,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"server=ASOSYAL-W\SQLEXPRESS;database=ReCapProject;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"server=ASOSYAL-W\SQLEXPRESS;database=CarRental;Trusted_Connection=true");
         }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Car> Cars { get; set; }
