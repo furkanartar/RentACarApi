@@ -1,6 +1,7 @@
 ﻿using Core.Entities;
 using Microsoft.AspNetCore.Http;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities
 {
@@ -10,7 +11,5 @@ namespace Entities
         public int CarId { get; set; }
         public string ImagePath { get; set; }
         public DateTime Date { get; set; }
-
-        public IFormFile Files { get; set; }
     }
 }
