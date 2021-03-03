@@ -9,5 +9,7 @@
         public static string MaintenanceTime = "Sistem bakımda";
         public static string Listed = "Listelendi";
         public static string RentInvalid = "Araba zaten kiralandı";
+        public static object NotUploaded = "Yüklenemedi.";
+        public static object Uploaded = "Yüklendi";
     }
 }

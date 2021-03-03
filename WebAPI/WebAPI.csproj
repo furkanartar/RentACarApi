@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="NewFolder\**" />
+    <Content Remove="NewFolder\**" />
+    <EmbeddedResource Remove="NewFolder\**" />
+    <None Remove="NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
   </ItemGroup>
 
@@ -15,6 +22,8 @@
 
   <ItemGroup>
     <Folder Include="Images\" />
+    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 
 
