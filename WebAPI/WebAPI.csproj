@@ -20,10 +20,5 @@
     <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
-    <Folder Include="wwwroot\Images\" />
-  </ItemGroup>
-
 
 </Project>

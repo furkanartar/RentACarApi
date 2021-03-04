@@ -1,7 +1,7 @@
-﻿using System;
-using System.IO;
-using Core.Utilities.Results;
+﻿using Core.Utilities.Results;
 using Microsoft.AspNetCore.Http;
+using System;
+using System.IO;
 
 namespace Core.Utilities.FileHelper
 {
@@ -69,7 +69,6 @@ namespace Core.Utilities.FileHelper
         public static (string path, string pathAndName) PathAndNameCreator(IFormFile file)
         {
             FileInfo fileInfo = new FileInfo(file.FileName);
-
             string fileExtension = fileInfo.Extension;
 
             var uniqueFilename = Guid.NewGuid().ToString("N") + fileExtension;

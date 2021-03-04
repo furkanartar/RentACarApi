@@ -7,6 +7,7 @@
   <ItemGroup>
     <Folder Include="CrossCuttingConcerns\Validation\" />
     <Folder Include="DataAccess\EntityFramework\" />
+    <Folder Include="Utilities\Business\" />
   </ItemGroup>
 
   <ItemGroup>

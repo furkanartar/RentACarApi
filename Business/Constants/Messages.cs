@@ -11,7 +11,6 @@
         public static string RentInvalid = "Araba zaten kiralandı";
         public static object NotUploaded = "Yüklenemedi.";
         public static object Uploaded = "Yüklendi";
-        internal static string CarOfImageLimitExceeded;
-        internal static string CarImageIsNull;
+        internal static string CarOfImageLimitExceeded = "Resim limiti aşıldı";
     }
 }
