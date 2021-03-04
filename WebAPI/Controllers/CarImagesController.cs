@@ -28,10 +28,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getallimagesbycarid")]
-        public IActionResult GetAllImagesByCarId([FromForm(Name = "CarId")] int id)
+        [HttpGet("getbyid")]
+        public IActionResult GetById([FromForm(Name = "Id")] int id)
         {
-            var result = _carImageService.GetAllImagesByCarId(id);
+            var result = _carImageService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -40,7 +40,18 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        //public IActionResult AddAsync([FromForm(Name = ("Image"))] IFormFile file, [FromForm] CarImage carImage)
+        [HttpGet("getallimagesbycarid")]
+        public IActionResult GetAllImagesByCarId([FromForm(Name = "CarId")] int carId)
+        {
+            var result = _carImageService.GetAllImagesByCarId(carId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
         [HttpPost("add")]
         public IActionResult Add([FromForm(Name = "Image")] IFormFile file, [FromForm] CarImage carImage)
         {
@@ -55,9 +66,8 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update([FromForm(Name = "Image")] IFormFile file, [FromForm(Name = "Id")] int id)
+        public IActionResult Update([FromForm(Name = "Image")] IFormFile file, [FromForm] CarImage carImage)
         {
-            var carImage = _carImageService.GetById(id).Data;
             var result = _carImageService.Update(file, carImage);
             if (result.Success)
             {
@@ -68,8 +78,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("delete")]
-        public IActionResult Delete(CarImage carImage)
+        public IActionResult Delete([FromForm(Name = "Id")] int id)
         {
+            var carImage = _carImageService.GetById(id).Data;
             var result = _carImageService.Delete(carImage);
             if (result.Success)
             {
