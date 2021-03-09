@@ -32,7 +32,7 @@ namespace Business
             carImage.ImagePath = FileHelper.AddAsync(file);
             carImage.Date = DateTime.Today;
             _carImageDal.Add(carImage);
-            return new SuccessResult(Messages.Added);
+            return new SuccessResult(Messages.Uploaded);
         }
 
         public IResult Delete(CarImage carImage)

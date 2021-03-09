@@ -1,17 +1,29 @@
-﻿namespace Core.Utilities.Results
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Core.Utilities.Results
 {
-    public class SuccessDataResult<T> : Result, IDataResult<T>
+    public class SuccessDataResult<T>:DataResult<T>
     {
-        public SuccessDataResult(T data, string message) : base(true, message)
+        public SuccessDataResult(T data, string message):base(data,true,message)
         {
-            Data = data;
+
         }
 
-        public SuccessDataResult(T data) : base(true)
+        public SuccessDataResult(T data):base(data,true)
         {
-            Data = data;
+
         }
 
-        public T Data { get; }
+        public SuccessDataResult(string message):base(default,true,message)
+        {
+
+        }
+
+        public SuccessDataResult():base(default,true)
+        {
+                
+        }
     }
 }
