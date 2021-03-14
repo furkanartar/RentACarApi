@@ -1,6 +1,6 @@
 ﻿namespace Entities.DTOs
 {
-    public class CarDetailDTO
+    public class CarDetailDto
     {
         public string CarName { get; set; }
         public string BrandName { get; set; }

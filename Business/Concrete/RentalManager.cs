@@ -1,10 +1,11 @@
 ﻿using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess;
 using Entities;
+using Entities.DTOs;
 using System.Collections.Generic;
-using Business.ValidationRules.FluentValidation;
-using Core.Aspects.Autofac.Validation;
 
 namespace Business
 {
@@ -20,6 +21,11 @@ namespace Business
         public IDataResult<List<Rental>> GetAll()
         {
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.Listed);
+        }
+
+        public IDataResult<List<RentalDetailDto>> GetRentalDetails()
+        {
+            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails(), Messages.Listed);
         }
 
         [ValidationAspect(typeof(RentalValidator))]
