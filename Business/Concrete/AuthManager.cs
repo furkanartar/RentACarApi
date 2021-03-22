@@ -3,7 +3,7 @@ using Core.Entities.Concrete;
 using Core.Security.Jwt;
 using Core.Utilities.Results;
 using Core.Utilities.Security.Hashing;
-using Entities.DTOs;
+using Entities.Dtos;
 
 namespace Business
 {

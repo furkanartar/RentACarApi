@@ -1,7 +1,6 @@
 ﻿using Core.DataAccess.EntityFramework;
 using Entities;
-using Entities.DTOs;
-using System;
+using Entities.Dtos;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,7 +8,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCarDal : EfEntityRepositoryBase<Car, CarRentalContext>, ICarDal
     {
-        public List<CarDetailDto> GetCarDetails()
+        public List<CarDetailDto> GetAllCarDetails()
         {
             using (CarRentalContext context = new CarRentalContext())
             {
@@ -19,11 +18,16 @@ namespace DataAccess.Concrete.EntityFramework
 
                              select new CarDetailDto()
                              {
+                                 CarId = car.Id,
+                                 BrandId = brand.Id,
+                                 ColorId = color.Id,
+                                 ModelYear = car.ModelYear,
                                  CarName = car.CarName,
-                                 ColorName = color.ColorName,
                                  BrandName = brand.BrandName,
-                                 DailyPrice = Convert.ToDouble(car.DailyPrice)
-                             };
+                                 ColorName = color.ColorName,
+                                 DailyPrice = car.DailyPrice,
+                                 Description = car.Description,
+                                 };
                 return result.ToList();
             }
         }

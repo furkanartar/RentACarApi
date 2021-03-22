@@ -4,7 +4,7 @@ using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess;
 using Entities;
-using Entities.DTOs;
+using Entities.Dtos;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -31,17 +31,22 @@ namespace Business
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), Messages.Listed);
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetAllCarDetails(), Messages.Listed);
         }
 
-        public IDataResult<List<Car>> GetCarsByBrandId(int id)
+        public IDataResult<List<CarDetailDto>> GetCarDetailsById(int id)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == id).ToList(), Messages.Listed);
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetAllCarDetails().Where(c => c.CarId == id).ToList(), Messages.Listed);
         }
 
-        public IDataResult<List<Car>> GetCarsByColorId(int id)
+        public IDataResult<List<CarDetailDto>> GetCarsByBrandId(int id)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == id).ToList(), Messages.Listed);
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetAllCarDetails().Where(c => c.BrandId == id).ToList(), Messages.Listed);
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarsByColorId(int id)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetAllCarDetails().Where(c => c.ColorId == id).ToList(), Messages.Listed);
         }
 
         [ValidationAspect(typeof(CarValidator))]

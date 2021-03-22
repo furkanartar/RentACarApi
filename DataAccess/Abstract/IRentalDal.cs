@@ -2,7 +2,7 @@
 using Core.DataAccess;
 using Core.Utilities.Results;
 using Entities;
-using Entities.DTOs;
+using Entities.Dtos;
 
 namespace DataAccess
 {

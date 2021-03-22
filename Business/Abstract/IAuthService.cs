@@ -1,7 +1,7 @@
 ﻿using Core.Entities.Concrete;
 using Core.Security.Jwt;
 using Core.Utilities.Results;
-using Entities.DTOs;
+using Entities.Dtos;
 
 namespace Business
 {

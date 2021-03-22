@@ -1,6 +1,6 @@
 ﻿using Core.Entities;
 
-namespace Entities.DTOs
+namespace Entities.Dtos
 {
     public class UserForRegisterDto : IDto
     {

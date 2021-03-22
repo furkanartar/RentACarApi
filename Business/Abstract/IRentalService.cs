@@ -2,7 +2,7 @@
 using Core.Utilities.Results;
 using DataAccess.Concrete.EntityFramework;
 using Entities;
-using Entities.DTOs;
+using Entities.Dtos;
 
 namespace Business
 {

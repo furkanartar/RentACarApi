@@ -4,8 +4,8 @@ using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess;
 using Entities;
-using Entities.DTOs;
 using System.Collections.Generic;
+using Entities.Dtos;
 
 namespace Business
 {
