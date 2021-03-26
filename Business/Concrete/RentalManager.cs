@@ -5,6 +5,7 @@ using Core.Utilities.Results;
 using DataAccess;
 using Entities;
 using System.Collections.Generic;
+using System.Linq;
 using Entities.Dtos;
 
 namespace Business
@@ -21,6 +22,10 @@ namespace Business
         public IDataResult<List<Rental>> GetAll()
         {
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.Listed);
+        }
+        public IDataResult<List<Rental>> GetAllByCarId(int carId)
+        {
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll().Where(car=>car.CarId == carId).ToList(), Messages.Listed);
         }
 
         public IDataResult<List<RentalDetailDto>> GetRentalDetails()

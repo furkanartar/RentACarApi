@@ -1,11 +1,6 @@
 ﻿using Business;
 using Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
@@ -84,6 +79,18 @@ namespace WebAPI.Controllers
         public IActionResult GetCarDetailsByColorId(int id)
         {
             var result = _carService.GetCarsByColorId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpGet("getcarsbybrandandidandcolorid")]
+        public IActionResult GetCarDetailsByBrandIdAndColorId(int brandId, int colorId)
+        {
+            var result = _carService.GetCarDetailsByBrandIdAndColorId(brandId, colorId);
             if (result.Success)
             {
                 return Ok(result);

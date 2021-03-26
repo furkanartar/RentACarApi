@@ -1,6 +1,4 @@
-﻿
-
-using Autofac;
+﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
 using Castle.DynamicProxy;
 using Core.Security.Jwt;

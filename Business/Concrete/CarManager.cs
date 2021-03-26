@@ -49,6 +49,11 @@ namespace Business
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetAllCarDetails().Where(c => c.ColorId == id).ToList(), Messages.Listed);
         }
 
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByBrandIdAndColorId(int brandId, int colorId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetAllCarDetails().Where(c => c.BrandId == brandId && c.ColorId == colorId).ToList(), Messages.Listed);
+        }
+
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
@@ -67,6 +72,8 @@ namespace Business
             _carDal.Delete(car);
             return new SuccessResult(Messages.Deleted);
         }
+
+
     }
 }
 

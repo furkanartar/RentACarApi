@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Core.Utilities.Results;
+﻿using Core.Utilities.Results;
 using Entities;
 using Entities.Dtos;
+using System.Collections.Generic;
 
 namespace Business
 {
@@ -16,5 +16,6 @@ namespace Business
         IResult Add(Car car);
         IResult Update(Car car);
         IResult Delete(Car car);
+        IDataResult<List<CarDetailDto>> GetCarDetailsByBrandIdAndColorId(int brandId, int colorId);
     }
 }
