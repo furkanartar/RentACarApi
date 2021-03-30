@@ -1,11 +1,6 @@
 ﻿using Business;
 using Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
@@ -52,11 +47,33 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("getpaymentmethodnotaddedbycarid")]
+        public IActionResult GetPaymentMethodNotAddedByCarId(int carId)
+        {
+            var result = _rentalService.GetPaymentMethodNotAddedByCarId(carId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
         [HttpPost("add")]
         public IActionResult Add(Rental rental)
         {
             var result = _rentalService.Add(rental);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpPost("update")]
+        public IActionResult Update(Rental rental)
+        {
+            var result = _rentalService.Update(rental);
             if (result.Success)
             {
                 return Ok(result);

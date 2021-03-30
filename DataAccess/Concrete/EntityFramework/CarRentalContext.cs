@@ -8,8 +8,10 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"server=DESKTOP-5IHA6IN\SQLEXPRESS;database=CarRental;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(
+                @"server=DESKTOP-5IHA6IN\SQLEXPRESS;database=CarRental;Trusted_Connection=true");
         }
+
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Color> Colors { get; set; }
@@ -19,5 +21,7 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<User> Users { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
+        public DbSet<CreditCard> CreditCards { get; set; }
+        public DbSet<CustomerCreditCard> CustomerCreditCards { get; set; }
     }
 }

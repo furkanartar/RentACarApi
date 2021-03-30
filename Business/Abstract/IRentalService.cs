@@ -11,6 +11,8 @@ namespace Business
         IDataResult<List<Rental>> GetAll();
         IDataResult<List<RentalDetailDto>> GetRentalDetails();
         IResult Add(Rental rental);
+        IResult Update(Rental rental);
         IDataResult<List<Rental>> GetAllByCarId(int carId);
+        IDataResult<List<Rental>> GetPaymentMethodNotAddedByCarId(int carId);
     }
 }

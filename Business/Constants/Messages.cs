@@ -19,5 +19,6 @@ namespace Business.Constants
         public static string PasswordError = "Şifre yanlış";
         public static string SuccessfulLogin = "Giriş başarılı";
         public static string UserAlreadyExists  = "Kullanıcı zaten mevcut";
+        public static string TheCarIsAlreadyRented = "Araba zaten kiralanmış";
     }
 }

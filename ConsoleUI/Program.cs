@@ -10,11 +10,6 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            //CarCRUD();
-            //BrandCRUD();
-            //ColorCRUD();
-            //GetCarDetails();
-
             IRentalService _rentalManager = new RentalManager(new EfRentalDal());
 
             Console.WriteLine(_rentalManager.Add(new Rental { CarId = 2, CustomerId = 1, RentDate = new DateTime(2021, 01, 01), ReturnDate = new DateTime(2021, 02, 12) }).Message);
@@ -23,7 +18,7 @@ namespace ConsoleUI
         private static void GetCarDetails()
         {
             EfCarDal _efCarDal = new EfCarDal();
-            foreach (var car in _efCarDal.GetCarDetails())
+            foreach (var car in _efCarDal.GetAllCarDetails())
             {
                 Console.WriteLine($"{car.CarName} {car.ColorName} {car.BrandName} {car.DailyPrice} TL");
             }
