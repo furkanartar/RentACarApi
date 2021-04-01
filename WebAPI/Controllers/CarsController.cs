@@ -110,6 +110,7 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
+
         [HttpPost("Update")]
         public IActionResult Update(Car car)
         {
@@ -121,6 +122,7 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
+
         [HttpGet("Delete")]
         public IActionResult Delete(Car car)
         {
