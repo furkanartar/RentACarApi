@@ -20,5 +20,12 @@ namespace Business.Constants
         public static string SuccessfulLogin = "Giriş başarılı";
         public static string UserAlreadyExists  = "Kullanıcı zaten mevcut";
         public static string TheCarIsAlreadyRented = "Araba zaten kiralanmış";
+
+        public static string FindeksAdded = "Findeks puanınız eklendi.";
+        public static string FindeksUpdated = "Findeks puanınız güncellendi.";
+        public static string FindeksDeleted = "Findeks puanınız silindi.";
+        public static string FindeksNotEnoughForCar = "Findeks puanınız bu araç için yeterli değil..";
+        public static string FindeksNotFound = "Findeks puanı eklemelisiniz.";
+        public static string AuthorizationDenied = "AuthorizationDenied";
     }
 }

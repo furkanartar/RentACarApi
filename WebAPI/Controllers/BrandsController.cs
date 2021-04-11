@@ -21,7 +21,7 @@ namespace WebAPI.Controllers
             _brandService = brandService;
         }
 
-        //[Authorize(Roles = "Admin")]
+        
         [HttpGet("getall")]
         public IActionResult GetAll()
         {

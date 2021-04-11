@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Business.BusinessAspects.Autofac.Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess;
@@ -25,6 +26,7 @@ namespace Business
             return new SuccessDataResult<Brand>(_brandDal.Get(c => c.Id == id), Messages.Listed);
         }
 
+        [SecuredOperation("admin")]
         public IResult Add(Brand brand)
         {
             _brandDal.Add(brand);

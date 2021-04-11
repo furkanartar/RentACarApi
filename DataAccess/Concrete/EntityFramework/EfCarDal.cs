@@ -3,6 +3,7 @@ using Entities;
 using Entities.Dtos;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 
 namespace DataAccess.Concrete.EntityFramework
 {
@@ -27,7 +28,16 @@ namespace DataAccess.Concrete.EntityFramework
                                  ColorName = color.ColorName,
                                  DailyPrice = car.DailyPrice,
                                  Description = car.Description,
-                                 };
+                                 CarImages = (from ImagePath in context.CarImages
+                                     where ImagePath.CarId == car.Id
+                                     select new CarImage
+                                     {
+                                         Id = ImagePath.Id,
+                                         CarId = ImagePath.CarId,
+                                         ImagePath = ImagePath.ImagePath,
+                                         Date = ImagePath.Date
+                                     }).ToList()
+                             };
                 return result.ToList();
             }
         }

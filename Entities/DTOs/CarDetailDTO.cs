@@ -1,4 +1,6 @@
-﻿namespace Entities.Dtos
+﻿using System.Collections.Generic;
+
+namespace Entities.Dtos
 {
     public class CarDetailDto
     {
@@ -11,5 +13,6 @@
         public string ColorName { get; set; }
         public decimal DailyPrice { get; set; }
         public string Description { get; set; }
+        public List<CarImage> CarImages{ get; set; }
     }
 }

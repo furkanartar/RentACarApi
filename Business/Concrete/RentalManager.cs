@@ -15,10 +15,14 @@ namespace Business
     public class RentalManager : IRentalService
     {
         private IRentalDal _rentalDal;
+        private ICarService _carService;
+        private IFindeksService _findeksService;
 
-        public RentalManager(IRentalDal rentalDal)
+        public RentalManager(IRentalDal rentalDal, ICarService carService, IFindeksService findeksService)
         {
             _rentalDal = rentalDal;
+            _carService = carService;
+            _findeksService = findeksService;
         }
 
         public IDataResult<List<Rental>> GetAll()
@@ -47,10 +51,10 @@ namespace Business
             return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails(), Messages.Listed);
         }
 
-        [ValidationAspect(typeof(RentalValidator))]
+        //[ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
-            IResult result = BusinessRules.Run(CheckIfCurrentCarIsRent(rental));
+            IResult result = BusinessRules.Run(IsRentable(rental), CheckFindeksScoreSufficiency(rental));
 
             if (result != null)
             {
@@ -61,7 +65,7 @@ namespace Business
             return new SuccessResult(Messages.Added);
         }
 
-        private IResult CheckIfCurrentCarIsRent(Rental rental)
+        private IResult IsRentable(Rental rental)
         {
             var rents = _rentalDal.GetAll(rent => rent.CarId == rental.CarId && rent.ReturnDate >= rental.RentDate); 
             if (rents.Count != 0)
@@ -70,6 +74,17 @@ namespace Business
             }
 
             return new SuccessResult(Messages.Added);
+        }
+
+        public IResult CheckFindeksScoreSufficiency(Rental rental)
+        {
+            var car = _carService.GetById(rental.CarId).Data;
+            var findeks = _findeksService.GetByCustomerId(rental.CustomerId).Data;
+
+            if (findeks == null) return new ErrorResult(Messages.FindeksNotFound);
+            if (findeks.Score < car.MinFindeksScore) return new ErrorResult(Messages.FindeksNotEnoughForCar);
+
+            return new SuccessResult();
         }
     }
 }
